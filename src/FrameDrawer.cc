@@ -297,6 +297,7 @@ cv::Mat FrameDrawer::DrawRightFrame()
 void FrameDrawer::DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText)
 {
     stringstream s;
+    s << "Frame: " << mCurrentFrame.mnId << "| "; 
     if(nState==Tracking::NO_IMAGES_YET)
         s << " WAITING FOR IMAGES";
     else if(nState==Tracking::NOT_INITIALIZED)

@@ -575,6 +575,7 @@ void System::SaveTrajectoryEuRoC(const string &filename)
 
         Trw = Trw*pKF->GetPose()*Twb; // Tcp*Tpw*Twb0=Tcb0 where b0 is the new world reference
 
+        f << pKF->mnFrameId << " "; 
         if (mSensor == IMU_MONOCULAR || mSensor == IMU_STEREO)
         {
             cv::Mat Tbw = pKF->mImuCalib.Tbc*(*lit)*Trw;
@@ -596,7 +597,7 @@ void System::SaveTrajectoryEuRoC(const string &filename)
     //cout << "end saving trajectory" << endl;
     f.close();
     cout << endl << "End of saving trajectory to " << filename << " ..." << endl;
-}
+} 
 
 
 void System::SaveKeyFrameTrajectoryEuRoC(const string &filename)
